@@ -6,14 +6,107 @@
     <script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
     <script src="app.js"></script>
+    <script src="thirdparty/ui-bootstrap-tpls-0.11.0.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/doc.css"></link>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 
   </head>
+
+
   <body ng-app="sampleApp">
-    <div ng-controller="SampleCtrl">
+    <div ng-controller="SampleCtrl" class="container" id="top-container">
 
-    <!-- <div ng-view></div> -->
+    <nav class="navbar navbar-default navbar-fixed-top" 
+      role="navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#">DocX</a>
+        <p ng-show="user" class="navbar-text pull-right"> 
+          {{ user.displayName }} 
+        </p>
+        <img ng-show="user" class="navbar-text pull-right" 
+          ng-src="{{user.thirdPartyUserData.picture.data.url}}"> 
+           
+        <button 
+          class="btn btn-default navbar-btn navbar-right" 
+          ng-hide="user"
+          ng-click="loginWithFacebook()">Log In With Facebook
+        </button>
+      </div>
+    </nav>
+    
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-search"></i></div>
+          <input type="text" class="form-control" 
+            placeholder="Ophthamologist">
+        </div>
+      </div>
+    </div>
 
+
+
+     
+  <div class="row">
+    <div class="col-md-12">
+        <div class="accordian-wrapper" 
+             ng-controller="AccordionDemoCtrl">
+          <accordion close-others="oneAtATime">
+            <accordion-group ng-repeat="doctor in doctors">
+
+              <accordion-heading>
+              <!-- HEADER CONTENT-->
+                <i class="pull-left fa fa-user-md"></i>
+                <span>{{doctor.name}} </span>
+                <div class="pull-right metrics">
+                  <span>
+                    <i class="fa fa-user"></i>
+                    {{ doctor.friends }} Friends
+                  </span>
+                  <span>
+                    <i class="fa fa-map-marker"></i>
+                    {{ doctor.distance }} Miles
+                  </span>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              </accordion-heading>
+              <!-- BODY CONTENT -->
+                <ul class="fa-ul">
+                  <li>
+                    <i class="fa fa-li fa-stethoscope"></i>
+                    {{ doctor.type }}
+                  </li>
+                  <li>
+                    <i class="fa fa-li fa-medkit"></i>
+                    {{ doctor.address }}
+                  </li>
+                  <li>
+                    <i class="fa fa-li fa-phone"></i>
+                    {{ doctor.phone_number }}
+                  </li>
+                </ul>
+                <hr>
+                <p>{{doctor.content}}</p>
+
+
+            </accordion-group>
+          </accordion>
+        </div>
+      </div>
+    </div>
+
+<!-- 
+    <div>
+      <div class="row">
+        <div class="col-md-3">
           <ul>
             <li ng-repeat="message in messages">
               <input class="form-control" ng-model="message.text" ng-change="messages.$save(message)" />
@@ -27,9 +120,13 @@
             <button class="btn btn-default" type="submit">add message</button>
           </form>
 
-          <button class="btn btn-primary" ng-click="loginWithFacebook()">Log In With Facebook</button>
+         
+        </div>
+      </div>
+    </div> -->
 
-    </div>
+  </div>
+
   </body>
 
 </html>

@@ -1,1 +1,20 @@
-<h1>main.html</h1>
+<div ng-controller="SampleCtrl">
+
+<!-- <div ng-view></div> -->
+
+      <ul>
+        <li ng-repeat="message in messages">
+          <input class="form-control" ng-model="message.text" ng-change="messages.$save(message)" />
+
+          <button ng-click="messages.$remove(message)">X</button>
+
+        </li>
+      </ul>
+      <form ng-submit="addMessage(newMessageText)">
+        <input class="form-control" ng-model="newMessageText" />
+        <button class="btn btn-default" type="submit">add message</button>
+      </form>
+
+      <button class="btn btn-primary" ng-click="loginWithFacebook()">Log In With Facebook</button>
+
+</div>

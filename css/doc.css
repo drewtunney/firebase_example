@@ -1,0 +1,64 @@
+body {
+  font-family: 'Droid Serif', serif;
+}
+
+span {
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  height: 20px;
+}
+
+.panel-default>.panel-heading {
+  background-color: white;
+}
+
+.panel-default {
+  border-color: #ccc;
+}
+
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.container {
+  width: 1000px;
+}
+
+#top-container {
+  padding-top: 80px;
+}
+
+.fa-user-md {
+  padding-right: 7px;
+}
+
+.input-group-addon {
+  background-color: white;
+}
+
+.accordian-wrapper {
+  padding-top: 30px;
+}
+
+.metrics span {
+  padding-right: 20px;
+}
+
+.fa-star {
+  color: gold;
+}
+
+.fa-map-marker {
+  color: #da552f;
+}
+
+.fa-user {
+  color: #428bca;
+}
